@@ -1,0 +1,4 @@
+[submodule "dictionary"]
+	path = dictionary
+	url = https://github.com/Pierre-Emmanuel41/dictionary.git
+	branch = 2.0-SNAPSHOT
