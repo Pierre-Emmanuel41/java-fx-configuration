@@ -8,22 +8,27 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>java-fx-configuration</name>
 	<url>http://maven.apache.org</url>
-	
+
 	<properties>
 		<author>Pierre-Emmanuel41</author>
 		<project.build.sourceEncoding>Cp1252</project.build.sourceEncoding>
 		<maven.compiler.target>11</maven.compiler.target>
 		<maven.compiler.source>11</maven.compiler.source>
 	</properties>
-	
+
 	<dependencies>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>15.0.1</version>
+		</dependency>
 		<dependency>
 			<groupId>fr.pederobien</groupId>
 			<artifactId>dictionary</artifactId>
 			<version>2.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
