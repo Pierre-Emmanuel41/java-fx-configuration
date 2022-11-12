@@ -29,7 +29,7 @@ public class SimpleTooltipProperty extends SimpleObjectProperty<Tooltip> {
 	 * @param code The new code associated to the message to display.
 	 * @param args The new arguments array associated to the code.
 	 */
-	public void setMessageCode(ICode code, Object... args) {
+	public void setCode(ICode code, Object... args) {
 		textProperty.setCode(code, args);
 	}
 }

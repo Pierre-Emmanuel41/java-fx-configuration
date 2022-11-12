@@ -26,38 +26,33 @@ public class PropertyHelper {
 	}
 
 	/**
-	 * Create a string property based on the gui configuration associated to this helper. If the local parameter in the gui
-	 * configuration changes then this property is automatically updated.
+	 * Creates a language property. A language property is a simple String property but whose the message is language sensitive.
 	 * 
 	 * @param code The code associated to the message to display.
 	 * @param args The message arguments if the message needs arguments.
 	 * 
-	 * @return the created language property.
+	 * @return A new language property.
 	 */
-	public SimpleLanguageProperty languageProperty(ICode code, Object... args) {
+	public SimpleLanguageProperty newLanguageProperty(ICode code, Object... args) {
 		return new SimpleLanguageProperty(listener, code, args);
 	}
 
 	/**
-	 * Create a font property based on the gui configuration associated to this helper. If the font parameter in the gui configuration
-	 * changes then this font property is automatically updated.
-	 * 
-	 * @return the created font property.
+	 * @return A new font property synchronized with a GUI configuration.
 	 */
-	public SimpleFontProperty fontProperty() {
+	public SimpleFontProperty newFontProperty() {
 		return new SimpleFontProperty(listener);
 	}
 
 	/**
-	 * Create a tooltip property based on the gui configuration associated to this helper. if the font or local parameter in the gui
-	 * configuration changes then this property is also updated.
+	 * Creates a Tooltip property whose the font and the message is synchronized with a GUI configuration.
 	 * 
 	 * @param code The code associated to the message to display.
 	 * @param args The message arguments if the message needs arguments.
 	 * 
-	 * @return the created tooltip property.
+	 * @return A new Tooltip property.
 	 */
-	public SimpleTooltipProperty tooltipProperty(ICode code, Object... args) {
+	public SimpleTooltipProperty newTooltipProperty(ICode code, Object... args) {
 		return new SimpleTooltipProperty(listener, code, args);
 	}
 }
