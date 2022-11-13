@@ -4,6 +4,7 @@ import fr.pederobien.dictionary.interfaces.ICode;
 import fr.pederobien.javafx.configuration.impl.GuiHelper;
 import fr.pederobien.javafx.configuration.impl.properties.SimpleLanguageProperty;
 import fr.pederobien.javafx.configuration.impl.properties.SimpleTooltipProperty;
+import javafx.beans.property.StringProperty;
 import javafx.scene.control.TextField;
 
 public class SimpleTextField extends TextField {
@@ -35,7 +36,18 @@ public class SimpleTextField extends TextField {
 	 * @param args The message arguments if the message needs arguments.
 	 */
 	public SimpleTextField(ICode code, Object... args) {
+		fontProperty().bind(GuiHelper.getPropertyHelper().newFontProperty());
 		setText(code, args);
+	}
+
+	/**
+	 * Creates a simple text field whose the text property is bidirectionally bound with the given text property.
+	 * 
+	 * @param textProperty The text field text property.
+	 */
+	public SimpleTextField(StringProperty textProperty) {
+		fontProperty().bind(GuiHelper.getPropertyHelper().newFontProperty());
+		textProperty().bindBidirectional(textProperty);
 	}
 
 	/**

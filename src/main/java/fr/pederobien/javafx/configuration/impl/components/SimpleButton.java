@@ -6,58 +6,57 @@ import fr.pederobien.javafx.configuration.impl.properties.SimpleLanguageProperty
 import fr.pederobien.javafx.configuration.impl.properties.SimpleTooltipProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 
-public class SimpleLabel extends Label {
+public class SimpleButton extends Button {
 	private SimpleLanguageProperty textProperty;
 	private SimpleTooltipProperty tooltipProperty;
 
 	/**
-	 * Creates an empty label.
+	 * Creates a button with an empty string for its label.
 	 */
-	public SimpleLabel() {
-		super();
+	public SimpleButton() {
 		fontProperty().bind(GuiHelper.getPropertyHelper().newFontProperty());
 	}
 
 	/**
-	 * Creates Label with supplied text.
-	 * 
-	 * @param text null text is treated as the empty string
+	 * Creates a button with the specified text as its label.
+	 *
+	 * @param text A text string for its label.
 	 */
-	public SimpleLabel(String text) {
+	public SimpleButton(String text) {
 		super(text);
 		fontProperty().bind(GuiHelper.getPropertyHelper().newFontProperty());
 	}
 
 	/**
-	 * Creates a Label with the supplied text and graphic.
-	 * 
-	 * @param text    null text is treated as the empty string
-	 * @param graphic a null graphic is acceptable
+	 * Creates a button with the specified text and icon for its label.
+	 *
+	 * @param text    A text string for its label.
+	 * @param graphic the icon for its label.
 	 */
-	public SimpleLabel(String text, Node graphic) {
+	public SimpleButton(String text, Node graphic) {
 		super(text, graphic);
 		fontProperty().bind(GuiHelper.getPropertyHelper().newFontProperty());
 	}
 
 	/**
-	 * Creates a label whose the text is language sensitive.
+	 * Set the text of the button. The text is language sensitive.
 	 * 
 	 * @param code The code associated to the message to display.
 	 * @param args The message arguments if the message needs arguments.
 	 */
-	public SimpleLabel(ICode code, Object... args) {
+	public SimpleButton(ICode code, Object... args) {
 		fontProperty().bind(GuiHelper.getPropertyHelper().newFontProperty());
 		setText(code, args);
 	}
 
 	/**
-	 * Creates a label whose the text property is bound with the given text property.
+	 * Creates a simple button whose the text property is bound with the given text property.
 	 * 
-	 * @param textProperty The label text property.
+	 * @param textProperty The button text property.
 	 */
-	public SimpleLabel(StringProperty textProperty) {
+	public SimpleButton(StringProperty textProperty) {
 		fontProperty().bind(GuiHelper.getPropertyHelper().newFontProperty());
 		textProperty().bind(textProperty);
 	}

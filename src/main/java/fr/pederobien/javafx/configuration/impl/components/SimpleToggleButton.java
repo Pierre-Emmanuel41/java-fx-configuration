@@ -6,48 +6,47 @@ import fr.pederobien.javafx.configuration.impl.properties.SimpleLanguageProperty
 import fr.pederobien.javafx.configuration.impl.properties.SimpleTooltipProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
+import javafx.scene.control.ToggleButton;
 
-public class SimpleLabel extends Label {
+public class SimpleToggleButton extends ToggleButton {
 	private SimpleLanguageProperty textProperty;
 	private SimpleTooltipProperty tooltipProperty;
 
 	/**
-	 * Creates an empty label.
+	 * Creates a toggle button with an empty string for its label.
 	 */
-	public SimpleLabel() {
-		super();
+	public SimpleToggleButton() {
 		fontProperty().bind(GuiHelper.getPropertyHelper().newFontProperty());
 	}
 
 	/**
-	 * Creates Label with supplied text.
-	 * 
-	 * @param text null text is treated as the empty string
+	 * Creates a toggle button with the specified text as its label.
+	 *
+	 * @param text A text string for its label.
 	 */
-	public SimpleLabel(String text) {
+	public SimpleToggleButton(String text) {
 		super(text);
 		fontProperty().bind(GuiHelper.getPropertyHelper().newFontProperty());
 	}
 
 	/**
-	 * Creates a Label with the supplied text and graphic.
-	 * 
-	 * @param text    null text is treated as the empty string
-	 * @param graphic a null graphic is acceptable
+	 * Creates a toggle button with the specified text and icon for its label.
+	 *
+	 * @param text    A text string for its label.
+	 * @param graphic the icon for its label.
 	 */
-	public SimpleLabel(String text, Node graphic) {
+	public SimpleToggleButton(String text, Node graphic) {
 		super(text, graphic);
 		fontProperty().bind(GuiHelper.getPropertyHelper().newFontProperty());
 	}
 
 	/**
-	 * Creates a label whose the text is language sensitive.
+	 * Creates a toggle button whose the text is language sensitive.
 	 * 
 	 * @param code The code associated to the message to display.
 	 * @param args The message arguments if the message needs arguments.
 	 */
-	public SimpleLabel(ICode code, Object... args) {
+	public SimpleToggleButton(ICode code, Object... args) {
 		fontProperty().bind(GuiHelper.getPropertyHelper().newFontProperty());
 		setText(code, args);
 	}
@@ -57,13 +56,13 @@ public class SimpleLabel extends Label {
 	 * 
 	 * @param textProperty The label text property.
 	 */
-	public SimpleLabel(StringProperty textProperty) {
+	public SimpleToggleButton(StringProperty textProperty) {
 		fontProperty().bind(GuiHelper.getPropertyHelper().newFontProperty());
 		textProperty().bind(textProperty);
 	}
 
 	/**
-	 * Set the text of the label. The text is language sensitive.
+	 * Set the text of the button. The text is language sensitive.
 	 * 
 	 * @param code The code associated to the message to display.
 	 * @param args The message arguments if the message needs arguments.
@@ -77,7 +76,7 @@ public class SimpleLabel extends Label {
 	}
 
 	/**
-	 * Set the Tooltip of this label.
+	 * Set the Tooltip of this button.
 	 * 
 	 * @param code The code associated to the message to display.
 	 * @param args The message arguments if the message needs arguments.
