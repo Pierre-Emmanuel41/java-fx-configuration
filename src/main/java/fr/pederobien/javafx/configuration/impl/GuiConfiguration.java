@@ -15,9 +15,6 @@ import fr.pederobien.utils.event.EventManager;
 import javafx.scene.text.Font;
 
 public class GuiConfiguration implements IGuiConfiguration {
-	private static final Font DEFAULT_FONT = Font.getDefault();
-	private static final Locale DEFAULT_LOCALE = Locale.getDefault();
-
 	private String name;
 	private Font font;
 	private Locale locale;
@@ -31,6 +28,8 @@ public class GuiConfiguration implements IGuiConfiguration {
 	public GuiConfiguration(String name) {
 		this.name = name;
 		dictionaryContext = new DictionaryContext();
+		font = Font.getDefault();
+		locale = Locale.getDefault();
 	}
 
 	@Override
@@ -50,7 +49,7 @@ public class GuiConfiguration implements IGuiConfiguration {
 
 	@Override
 	public Font getFont() {
-		return font == null ? DEFAULT_FONT : font;
+		return font;
 	}
 
 	@Override
@@ -65,12 +64,12 @@ public class GuiConfiguration implements IGuiConfiguration {
 
 	@Override
 	public Locale getLocale() {
-		return locale == null ? DEFAULT_LOCALE : locale;
+		return locale;
 	}
 
 	@Override
 	public void setLocale(Locale locale) {
-		if (getLocale().equals(locale))
+		if (getLocale().getLanguage().equals(locale.getLanguage()))
 			return;
 
 		Locale oldLocale = getLocale();
