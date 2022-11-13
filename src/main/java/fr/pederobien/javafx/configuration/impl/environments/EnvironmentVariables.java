@@ -11,12 +11,12 @@ public class EnvironmentVariables {
 	/**
 	 * A specific name for the environment variable that gather dictionaries.
 	 */
-	public static final String DICTIONARIES_ENV_VARIABLE_NAME = "Dictionaries";
+	public static final String DICTIONARIES_ENV_VARIABLE_NAME = "DICTIONARIES_FOLDER";
 
 	/**
 	 * A specific name for the environment variable that gather images.
 	 */
-	public static final String IMAGES_ENV_VARIABLE_NAME = "Images";
+	public static final String IMAGES_ENV_VARIABLE_NAME = "IMAGES_FOLDER";
 
 	private Map<String, IEnvironmentVariable> variables;
 
