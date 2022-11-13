@@ -107,11 +107,13 @@ public class GuiHelper {
 	/**
 	 * Updates the current GUI configuration parameters from the given path.
 	 * 
-	 * @param path The path leading to the configuration file. It should contains the file name and the extension.
+	 * @param path          The path leading to the folder that contains configuration files.
+	 * @param configuration The configuration to update.
 	 */
-	public static IGuiConfiguration deserialize(String path) {
-		PERSISTENCE.deserialize(path);
-		return configuration;
+	public static IGuiConfiguration deserialize(String path, IGuiConfiguration configuration) {
+		setConfiguration(configuration);
+		PERSISTENCE.deserialize(String.format("%s/%s.xml", path, configuration.getName()));
+		return getConfiguration();
 	}
 
 	/**

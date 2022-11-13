@@ -1,5 +1,7 @@
 package fr.pederobien.javafx.configuration.persistence.loaders;
 
+import java.io.FileNotFoundException;
+
 import fr.pederobien.javafx.configuration.interfaces.IGuiConfiguration;
 import fr.pederobien.persistence.impl.Persistences;
 import fr.pederobien.persistence.impl.xml.XmlPersistence;
@@ -46,6 +48,12 @@ public class GuiConfigurationPersistence {
 	public void deserialize(String path) {
 		try {
 			persistence.deserialize(configuration, path);
+		} catch (FileNotFoundException e) {
+			try {
+				persistence.serialize(configuration, IPersistence.LATEST, path);
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
