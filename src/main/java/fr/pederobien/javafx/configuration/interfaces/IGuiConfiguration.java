@@ -34,7 +34,7 @@ public interface IGuiConfiguration {
 	/**
 	 * @return The locale of this configuration.
 	 */
-	public Locale getLocale();
+	Locale getLocale();
 
 	/**
 	 * Set the local of this configuration. If graphical components that display language sensitive message have been created, their
@@ -42,7 +42,7 @@ public interface IGuiConfiguration {
 	 * 
 	 * @param locale The new locale of this configuration.
 	 */
-	public void setLocale(Locale locale);
+	void setLocale(Locale locale);
 
 	/**
 	 * @return A object that store dictionaries used to display language sensitive messages.

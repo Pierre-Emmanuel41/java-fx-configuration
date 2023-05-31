@@ -1,7 +1,33 @@
 package fr.pederobien.javafx.configuration.persistence;
 
 public enum GuiConfigurationXmlTag {
-	NAME("name"), LOCALE("locale"), FONT("font"), FONT_FAMILY("fontFamily"), FONT_SIZE("fontSize");
+
+	/**
+	 * The configuration's name.
+	 */
+	NAME("name"),
+
+	/**
+	 * The configuration's locale.
+	 */
+	LOCALE("locale"),
+
+	/**
+	 * The configuration's font.
+	 */
+	FONT("font"),
+
+	/**
+	 * The font's family.
+	 */
+	FONT_FAMILY("fontFamily"),
+
+	/**
+	 * The font's size.
+	 */
+	FONT_SIZE("fontSize")
+
+	;
 
 	private String name;
 
