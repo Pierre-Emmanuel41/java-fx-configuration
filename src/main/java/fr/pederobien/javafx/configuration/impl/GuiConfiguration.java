@@ -4,21 +4,22 @@ import java.util.Locale;
 
 import fr.pederobien.dictionary.impl.DictionaryContext;
 import fr.pederobien.dictionary.interfaces.IDictionaryContext;
-import fr.pederobien.javafx.configuration.events.ConfigurationFontChangePostEvent;
-import fr.pederobien.javafx.configuration.events.ConfigurationFontChangePreEvent;
-import fr.pederobien.javafx.configuration.events.ConfigurationLocalChangePreEvent;
-import fr.pederobien.javafx.configuration.events.ConfigurationLocaleChangePostEvent;
-import fr.pederobien.javafx.configuration.events.ConfigurationNameChangePostEvent;
-import fr.pederobien.javafx.configuration.events.ConfigurationNameChangePreEvent;
+import fr.pederobien.javafx.configuration.events.FontChangePostEvent;
+import fr.pederobien.javafx.configuration.events.FontChangePreEvent;
+import fr.pederobien.javafx.configuration.events.LocalChangePreEvent;
+import fr.pederobien.javafx.configuration.events.LocaleChangePostEvent;
+import fr.pederobien.javafx.configuration.events.NameChangePostEvent;
+import fr.pederobien.javafx.configuration.events.NameChangePreEvent;
 import fr.pederobien.javafx.configuration.interfaces.IGuiConfiguration;
 import fr.pederobien.utils.event.EventManager;
 import javafx.scene.text.Font;
 
 public class GuiConfiguration implements IGuiConfiguration {
 	private String name;
+	private IDictionaryContext dictionaryContext;
+
 	private Font font;
 	private Locale locale;
-	private IDictionaryContext dictionaryContext;
 
 	/**
 	 * Creates a graphical user interface configuration.
@@ -44,7 +45,7 @@ public class GuiConfiguration implements IGuiConfiguration {
 
 		String oldName = getName();
 		Runnable update = () -> this.name = name;
-		EventManager.callEvent(new ConfigurationNameChangePreEvent(this, getName(), name), update, new ConfigurationNameChangePostEvent(this, getName(), oldName));
+		EventManager.callEvent(new NameChangePreEvent(this, getName(), name), update, new NameChangePostEvent(this, getName(), oldName));
 	}
 
 	@Override
@@ -59,7 +60,7 @@ public class GuiConfiguration implements IGuiConfiguration {
 
 		Font oldFont = getFont();
 		Runnable update = () -> this.font = font;
-		EventManager.callEvent(new ConfigurationFontChangePreEvent(this, getFont(), font), update, new ConfigurationFontChangePostEvent(this, oldFont, getFont()));
+		EventManager.callEvent(new FontChangePreEvent(this, getFont(), font), update, new FontChangePostEvent(this, oldFont, getFont()));
 	}
 
 	@Override
@@ -74,8 +75,7 @@ public class GuiConfiguration implements IGuiConfiguration {
 
 		Locale oldLocale = getLocale();
 		Runnable update = () -> this.locale = locale;
-		EventManager.callEvent(new ConfigurationLocalChangePreEvent(this, getLocale(), locale), update,
-				new ConfigurationLocaleChangePostEvent(this, getLocale(), oldLocale));
+		EventManager.callEvent(new LocalChangePreEvent(this, getLocale(), locale), update, new LocaleChangePostEvent(this, getLocale(), oldLocale));
 	}
 
 	@Override

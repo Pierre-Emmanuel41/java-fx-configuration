@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 import fr.pederobien.javafx.configuration.interfaces.IGuiConfiguration;
 
-public class ConfigurationLocaleChangePostEvent extends GuiConfigurationEvent {
+public class LocaleChangePostEvent extends GuiConfigurationEvent {
 	private Locale currentLocale, oldLocale;
 
 	/**
@@ -15,7 +15,7 @@ public class ConfigurationLocaleChangePostEvent extends GuiConfigurationEvent {
 	 * @param currentLocale The current locale of the configuration.
 	 * @param oldLocale     The old locale of the configuration.
 	 */
-	public ConfigurationLocaleChangePostEvent(IGuiConfiguration configuration, Locale currentLocale, Locale oldLocale) {
+	public LocaleChangePostEvent(IGuiConfiguration configuration, Locale currentLocale, Locale oldLocale) {
 		super(configuration);
 		this.currentLocale = currentLocale;
 		this.oldLocale = oldLocale;

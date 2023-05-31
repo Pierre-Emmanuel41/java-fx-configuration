@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 import fr.pederobien.javafx.configuration.interfaces.IGuiConfiguration;
 import fr.pederobien.utils.ICancellable;
 
-public class ConfigurationNameChangePreEvent extends GuiConfigurationEvent implements ICancellable {
+public class NameChangePreEvent extends GuiConfigurationEvent implements ICancellable {
 	private boolean isCancelled;
 	private String currentName, newName;
 
@@ -16,7 +16,7 @@ public class ConfigurationNameChangePreEvent extends GuiConfigurationEvent imple
 	 * @param currentName   The current name of the configuration.
 	 * @param newName       The new name of the configuration.
 	 */
-	public ConfigurationNameChangePreEvent(IGuiConfiguration configuration, String currentName, String newName) {
+	public NameChangePreEvent(IGuiConfiguration configuration, String currentName, String newName) {
 		super(configuration);
 		this.currentName = currentName;
 		this.newName = newName;

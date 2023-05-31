@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import fr.pederobien.javafx.configuration.events.ConfigurationFontChangePostEvent;
-import fr.pederobien.javafx.configuration.events.ConfigurationLocaleChangePostEvent;
+import fr.pederobien.javafx.configuration.events.FontChangePostEvent;
+import fr.pederobien.javafx.configuration.events.LocaleChangePostEvent;
 import fr.pederobien.javafx.configuration.interfaces.IGuiConfiguration;
 import fr.pederobien.utils.event.EventHandler;
 import fr.pederobien.utils.event.EventManager;
@@ -80,6 +80,16 @@ public class GuiConfigurationEventListener implements IEventListener {
 		 */
 		FONT_CHANGED("font"),
 
+		/**
+		 * Action to perform when the enter color of the configuration has changed.
+		 */
+		ENTER_COLOR_CHANGED("EnterColor"),
+
+		/**
+		 * Action to perform when the exit color of the configuration has changed.
+		 */
+		EXIT_COLOR_CHANGED("ExitColor"),
+
 		;
 
 		private String propertyName;
@@ -97,7 +107,7 @@ public class GuiConfigurationEventListener implements IEventListener {
 	}
 
 	@EventHandler
-	public void onLanguageChanged(ConfigurationLocaleChangePostEvent event) {
+	public void onLanguageChanged(LocaleChangePostEvent event) {
 		if (!event.getConfiguration().equals(configuration))
 			return;
 
@@ -105,7 +115,7 @@ public class GuiConfigurationEventListener implements IEventListener {
 	}
 
 	@EventHandler
-	public void onFontChanged(ConfigurationFontChangePostEvent event) {
+	public void onFontChanged(FontChangePostEvent event) {
 		firePropertyChanged(Action.FONT_CHANGED, event.getOldFont(), event.getCurrentFont());
 	}
 

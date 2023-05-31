@@ -4,7 +4,7 @@ import java.util.StringJoiner;
 
 import fr.pederobien.javafx.configuration.interfaces.IGuiConfiguration;
 
-public class ConfigurationNameChangePostEvent extends GuiConfigurationEvent {
+public class NameChangePostEvent extends GuiConfigurationEvent {
 	private String currentName, oldName;
 
 	/**
@@ -14,7 +14,7 @@ public class ConfigurationNameChangePostEvent extends GuiConfigurationEvent {
 	 * @param currentName   The current name of the configuration.
 	 * @param oldName       The old name of the configuration.
 	 */
-	public ConfigurationNameChangePostEvent(IGuiConfiguration configuration, String currentName, String oldName) {
+	public NameChangePostEvent(IGuiConfiguration configuration, String currentName, String oldName) {
 		super(configuration);
 		this.currentName = currentName;
 		this.oldName = oldName;

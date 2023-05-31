@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 import fr.pederobien.javafx.configuration.interfaces.IGuiConfiguration;
 import javafx.scene.text.Font;
 
-public class ConfigurationFontChangePostEvent extends GuiConfigurationEvent {
+public class FontChangePostEvent extends GuiConfigurationEvent {
 	private Font currentFont, oldFont;
 
 	/**
@@ -15,7 +15,7 @@ public class ConfigurationFontChangePostEvent extends GuiConfigurationEvent {
 	 * @param currentFont   The current font of the configuration.
 	 * @param oldFont       The old font of the configuration.
 	 */
-	public ConfigurationFontChangePostEvent(IGuiConfiguration configuration, Font currentFont, Font oldFont) {
+	public FontChangePostEvent(IGuiConfiguration configuration, Font currentFont, Font oldFont) {
 		super(configuration);
 		this.currentFont = currentFont;
 		this.oldFont = oldFont;

@@ -6,7 +6,7 @@ import java.util.StringJoiner;
 import fr.pederobien.javafx.configuration.interfaces.IGuiConfiguration;
 import fr.pederobien.utils.ICancellable;
 
-public class ConfigurationLocalChangePreEvent extends GuiConfigurationEvent implements ICancellable {
+public class LocalChangePreEvent extends GuiConfigurationEvent implements ICancellable {
 	private boolean isCancelled;
 	private Locale currentLocale, newLocale;
 
@@ -17,7 +17,7 @@ public class ConfigurationLocalChangePreEvent extends GuiConfigurationEvent impl
 	 * @param currentLocale The current locale of the configuration.
 	 * @param newLocale     The new locale of the configuration.
 	 */
-	public ConfigurationLocalChangePreEvent(IGuiConfiguration configuration, Locale currentLocale, Locale newLocale) {
+	public LocalChangePreEvent(IGuiConfiguration configuration, Locale currentLocale, Locale newLocale) {
 		super(configuration);
 		this.currentLocale = currentLocale;
 		this.newLocale = newLocale;

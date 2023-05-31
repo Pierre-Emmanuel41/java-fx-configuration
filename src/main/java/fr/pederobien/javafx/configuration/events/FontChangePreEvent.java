@@ -6,7 +6,7 @@ import fr.pederobien.javafx.configuration.interfaces.IGuiConfiguration;
 import fr.pederobien.utils.ICancellable;
 import javafx.scene.text.Font;
 
-public class ConfigurationFontChangePreEvent extends GuiConfigurationEvent implements ICancellable {
+public class FontChangePreEvent extends GuiConfigurationEvent implements ICancellable {
 	private boolean isCancelled;
 	private Font currentFont, newFont;
 
@@ -17,7 +17,7 @@ public class ConfigurationFontChangePreEvent extends GuiConfigurationEvent imple
 	 * @param currentFont   The current font of the configuration.
 	 * @param newFont       The new font of the configuration.
 	 */
-	public ConfigurationFontChangePreEvent(IGuiConfiguration configuration, Font currentFont, Font newFont) {
+	public FontChangePreEvent(IGuiConfiguration configuration, Font currentFont, Font newFont) {
 		super(configuration);
 		this.currentFont = currentFont;
 		this.newFont = newFont;
