@@ -1,8 +1,13 @@
 package fr.pederobien.javafx.configuration.impl.properties;
 
+import java.util.function.Function;
+
 import fr.pederobien.dictionary.interfaces.ICode;
 import fr.pederobien.javafx.configuration.impl.GuiConfigurationEventListener;
+import fr.pederobien.javafx.configuration.impl.components.SimpleListCell;
 import fr.pederobien.javafx.configuration.interfaces.IGuiConfiguration;
+import javafx.scene.Node;
+import javafx.scene.paint.Color;
 
 public class PropertyHelper {
 	private GuiConfigurationEventListener listener;
@@ -54,5 +59,15 @@ public class PropertyHelper {
 	 */
 	public SimpleTooltipProperty newTooltipProperty(ICode code, Object... args) {
 		return new SimpleTooltipProperty(listener, code, args);
+	}
+
+	/**
+	 * Create a cell view. If the entered color is null then the background is not updated when the mouse enter or exit the component.
+	 * 
+	 * @param constructor  The constructor that create the graphic of the cell.
+	 * @param enteredColor Color when mouse entered in the cell.
+	 */
+	public <T> SimpleListCell<T> newListCell(Function<T, Node> constructor, Color enteredColor) {
+		return new SimpleListCell<T>(constructor, enteredColor);
 	}
 }
